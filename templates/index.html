@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Slideshow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="slideshow-container" id="slideshow">
+        <!-- Slides will be dynamically added here -->
+        <div class="slide active">
+            <img src="https://via.placeholder.com/1920x1080?text=Add+Your+Photos" alt="Placeholder">
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prev-btn">&lt;</button>
+        <button id="play-pause-btn">▶</button>
+        <button id="next-btn">&gt;</button>
+    </div>
+
+    <div class="upload-container">
+        <input type="file" id="file-input" accept="image/*" multiple style="display: none;">
+        <button id="upload-btn">Upload Photos</button>
+    </div>
+
+    <button class="fullscreen-btn" id="fullscreen-btn">Fullscreen</button>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
