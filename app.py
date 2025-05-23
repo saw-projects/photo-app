@@ -7,8 +7,13 @@ import datetime
 import json
 from functools import wraps
 from werkzeug.utils import secure_filename
+from flask_cors import CORS
 
 app = Flask(__name__, static_folder='static')
+
+# Enable CORS for all routes
+CORS(app, resources={r"/*": {"origins": "*"}})
+
 
 # Configure logging
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
