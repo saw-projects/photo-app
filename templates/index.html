@@ -14,18 +14,16 @@
         </div>
     </div>
 
-    <div class="controls">
-        <button id="prev-btn">&lt;</button>
-        <button id="play-pause-btn">▶</button>
-        <button id="next-btn">&gt;</button>
+    <div class="controls-container">
+        <div class="controls">
+            <button id="prev-btn">&lt;</button>
+            <button id="play-pause-btn">▶</button>
+            <button id="next-btn">&gt;</button>
+            <input type="file" id="file-input" accept="image/*" multiple style="display: none;">
+            <button id="upload-btn">Upload</button>
+            <button id="fullscreen-btn">Fullscreen</button>
+        </div>
     </div>
-
-    <div class="upload-container">
-        <input type="file" id="file-input" accept="image/*" multiple style="display: none;">
-        <button id="upload-btn">Upload Photos</button>
-    </div>
-
-    <button class="fullscreen-btn" id="fullscreen-btn">Fullscreen</button>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

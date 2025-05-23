@@ -37,15 +37,24 @@ body {
     object-fit: contain;
 }
 
-.controls {
+.controls-container {
     position: fixed;
     bottom: 20px;
     left: 0;
     right: 0;
     display: flex;
     justify-content: center;
-    gap: 20px;
     z-index: 10;
+    transition: opacity 0.5s ease;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    padding: 10px 20px;
 }
 
 .controls button {
@@ -66,41 +75,15 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-.upload-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
+/* Special styling for non-circular buttons */
+#upload-btn, #fullscreen-btn {
+    border-radius: 25px;
+    padding: 0 15px;
+    width: auto;
+    white-space: nowrap;
 }
 
-#upload-btn {
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-#upload-btn:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-.fullscreen-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.fullscreen-btn:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+.hidden {
+    opacity: 0;
+    pointer-events: none;
 }

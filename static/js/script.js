@@ -7,15 +7,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileInput = document.getElementById('file-input');
     const uploadBtn = document.getElementById('upload-btn');
     const fullscreenBtn = document.getElementById('fullscreen-btn');
+    const controlsContainer = document.querySelector('.controls-container');
     
     let slides = document.querySelectorAll('.slide');
     let currentSlide = 0;
     let isPlaying = false;
     let slideInterval;
+    let cursorTimeout;
     const intervalTime = 5000; // 5 seconds
+    const cursorHideDelay = 3000; // 3 seconds
     
     // Load photos from server on page load
     loadPhotosFromServer();
+    
+    // Initialize cursor timeout
+    startCursorTimeout();
 
     // Functions
     function showSlide(n) {
@@ -151,5 +157,36 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (e.key === 'f') {
             toggleFullscreen();
         }
+        
+        // Show controls on any key press
+        showControls();
     });
+    
+    // Function to start the cursor timeout
+    function startCursorTimeout() {
+        // Clear any existing timeout
+        if (cursorTimeout) {
+            clearTimeout(cursorTimeout);
+        }
+        
+        // Set a new timeout
+        cursorTimeout = setTimeout(function() {
+            controlsContainer.classList.add('hidden');
+        }, cursorHideDelay);
+    }
+    
+    // Function to show controls
+    function showControls() {
+        controlsContainer.classList.remove('hidden');
+        startCursorTimeout();
+    }
+    
+    // Add mouse movement listener to show controls
+    document.addEventListener('mousemove', showControls);
+    
+    // Add touch listener for mobile devices
+    document.addEventListener('touchstart', showControls);
+    
+    // Show controls initially
+    showControls();
 });
